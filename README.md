@@ -6,10 +6,5 @@ Linked lists in Go are a fundamental data structure used to store a sequence of 
 
 Unfortunately, Go does not have a built-in linked list library in its core syntax, but that's OK - we can build our own using Go's powerful `struct` type system.
 
-## Singly linked list 
-
-TBA
-
-# Doubly linked list
-
-TBA
+* [Singly linked list](https://github.com/LukePeterson/LinkedList/tree/main/single)
+* Doubly linked list
