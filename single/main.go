@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Node struct {
 	next  *Node
@@ -16,6 +18,9 @@ func main() {
 	var list LinkedList
 	list.toList([]int{1, 2, 3})
 	fmt.Printf("list.toSlice(): %v\n", list.toSlice())
+
+	list.reverse()
+	fmt.Printf("list.reverse: %v\n", list.toSlice())
 }
 
 func (list *LinkedList) toList(input []int) {
@@ -51,4 +56,16 @@ func (list *LinkedList) append(newNode *Node) {
 		list.tail.next = newNode
 		list.tail = newNode
 	}
+}
+
+func (list *LinkedList) reverse() {
+	var prev *Node = nil
+	curr := list.head
+	for curr != nil {
+		next := curr.next
+		curr.next = prev
+		prev = curr
+		curr = next
+	}
+	list.head = prev
 }

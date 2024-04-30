@@ -160,3 +160,58 @@ func TestLinkedList_toList(t *testing.T) {
 		})
 	}
 }
+
+func TestLinkedList_reverse(t *testing.T) {
+	type fields struct {
+		head *Node
+		tail *Node
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		want   []int
+	}{
+		{
+			name: "Empty input",
+			fields: fields{
+				head: nil,
+				tail: nil,
+			},
+			want: []int{},
+		},
+		{
+			name: "Single element",
+			fields: fields{
+				head: &Node{value: 1, next: nil},
+				tail: nil,
+			},
+			want: []int{1},
+		},
+		{
+			name: "Multiple elements",
+			fields: fields{
+				head: &Node{value: 1, next: &Node{value: 2, next: &Node{value: 3, next: nil}}},
+				tail: nil,
+			},
+			want: []int{3, 2, 1},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			list := &LinkedList{
+				head: tt.fields.head,
+				tail: tt.fields.tail,
+			}
+			list.reverse()
+
+			got := []int{}
+			for node := list.head; node != nil; node = node.next {
+				got = append(got, node.value)
+			}
+
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("LinkedList.reverse() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
