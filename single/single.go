@@ -1,8 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
+package single
 
 type Node struct {
 	next  *Node
@@ -12,15 +8,6 @@ type Node struct {
 type LinkedList struct {
 	head *Node
 	tail *Node
-}
-
-func main() {
-	var list LinkedList
-	list.toList([]int{1, 2, 3})
-	fmt.Printf("list.toSlice(): %v\n", list.toSlice())
-
-	list.reverse()
-	fmt.Printf("list.reverse: %v\n", list.toSlice())
 }
 
 func (list *LinkedList) toList(input []int) {
