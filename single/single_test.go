@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestLinkedList_append(t *testing.T) {
+func TestLinkedList_Append(t *testing.T) {
 	type fields struct {
 		head *Node
 		tail *Node
@@ -55,7 +55,7 @@ func TestLinkedList_append(t *testing.T) {
 				head: tt.fields.head,
 				tail: tt.fields.tail,
 			}
-			list.append(tt.args.newNode)
+			list.Append(tt.args.newNode)
 			if (list.head != nil && list.head.value != tt.wantHead.value) ||
 				(list.tail != nil && list.tail.value != tt.wantTail.value) {
 				t.Errorf("LinkedList.append() head = %v, tail = %v; want head = %v, tail = %v",
@@ -65,7 +65,7 @@ func TestLinkedList_append(t *testing.T) {
 	}
 }
 
-func TestLinkedList_toSlice(t *testing.T) {
+func TestLinkedList_Slice(t *testing.T) {
 	type fields struct {
 		head *Node
 		tail *Node
@@ -106,14 +106,14 @@ func TestLinkedList_toSlice(t *testing.T) {
 				head: tt.fields.head,
 				tail: tt.fields.tail,
 			}
-			if got := list.toSlice(); !reflect.DeepEqual(got, tt.want) {
+			if got := list.Slice(); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("LinkedList.toSlice() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestLinkedList_toList(t *testing.T) {
+func TestLinkedList_List(t *testing.T) {
 	type fields struct {
 		head *Node
 		tail *Node
@@ -152,8 +152,8 @@ func TestLinkedList_toList(t *testing.T) {
 				head: tt.fields.head,
 				tail: tt.fields.tail,
 			}
-			list.toList(tt.args.input)
-			got := list.toSlice()
+			list.List(tt.args.input)
+			got := list.Slice()
 			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("LinkedList.toList() = %v, want %v", got, tt.want)
 			}
@@ -202,7 +202,7 @@ func TestLinkedList_reverse(t *testing.T) {
 				head: tt.fields.head,
 				tail: tt.fields.tail,
 			}
-			list.reverse()
+			list.Reverse()
 
 			got := []int{}
 			for node := list.head; node != nil; node = node.next {

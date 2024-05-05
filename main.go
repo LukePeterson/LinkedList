@@ -1,18 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/LukePeterson/linkedlist/single"
+)
 
 func main() {
+	var list single.LinkedList
 
-	var node Node
+	list.Create([]int{1, 2, 3})
+	fmt.Printf("list.Slice(): %v\n", list.Slice())
 
-	fmt.Println(node)
-
-	// var list LinkedList
-	// list.toList([]int{1, 2, 3})
-	// fmt.Printf("list.toSlice(): %v\n", list.toSlice())
-	// fmt.Println("")
-
-	// list.reverse()
-	// fmt.Printf("list.reverse: %v\n", list.toSlice())
+	list.Reverse()
+	fmt.Printf("list.Slice() (after reverse): %v\n", list.Slice())
 }

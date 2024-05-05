@@ -1,22 +1,27 @@
+// Package single implements a singly linked list of nodes
 package single
 
+// Node represents a single node in the list
 type Node struct {
 	next  *Node
 	value int
 }
 
+// LinkedList represents a single list, with a head and a tail
 type LinkedList struct {
 	head *Node
 	tail *Node
 }
 
-func (list *LinkedList) toList(input []int) {
+// Create creates a new linked list based on an array of ints
+func (list *LinkedList) Create(input []int) {
 	for i := range input {
-		list.append(&Node{value: input[i]})
+		list.Append(&Node{value: input[i]})
 	}
 }
 
-func (list *LinkedList) toSlice() []int {
+// Slice converts a linked list to an array of ints
+func (list *LinkedList) Slice() []int {
 	if list.head == nil {
 		return []int{}
 	}
@@ -31,7 +36,8 @@ func (list *LinkedList) toSlice() []int {
 	return result
 }
 
-func (list *LinkedList) append(newNode *Node) {
+// Append adds a new Node to the end of a list
+func (list *LinkedList) Append(newNode *Node) {
 	if newNode == nil {
 		return
 	}
@@ -45,7 +51,8 @@ func (list *LinkedList) append(newNode *Node) {
 	}
 }
 
-func (list *LinkedList) reverse() {
+// Reverse reverses a list
+func (list *LinkedList) Reverse() {
 	var prev *Node = nil
 	curr := list.head
 	for curr != nil {
