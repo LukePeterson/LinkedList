@@ -152,7 +152,7 @@ func TestLinkedList_List(t *testing.T) {
 				head: tt.fields.head,
 				tail: tt.fields.tail,
 			}
-			list.List(tt.args.input)
+			list.Create(tt.args.input)
 			got := list.Slice()
 			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("LinkedList.toList() = %v, want %v", got, tt.want)
