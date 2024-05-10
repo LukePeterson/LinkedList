@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/LukePeterson/linkedlist/single"
+	"github.com/lukepeterson/linkedlist/single"
 )
 
 func main() {
