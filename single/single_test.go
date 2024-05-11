@@ -21,28 +21,28 @@ func TestLinkedList_Append(t *testing.T) {
 		wantTail *Node
 	}{
 		{
-			name:     "Append to an empty list",
+			name:     "append to an empty list",
 			fields:   fields{head: nil, tail: nil},
 			args:     args{newNode: &Node{value: 1}},
 			wantHead: &Node{value: 1},
 			wantTail: &Node{value: 1},
 		},
 		{
-			name:     "Append to a list with one node",
+			name:     "append to a list with one node",
 			fields:   fields{head: &Node{value: 1}, tail: &Node{value: 1}},
 			args:     args{newNode: &Node{value: 2}},
 			wantHead: &Node{value: 1},
 			wantTail: &Node{value: 2},
 		},
 		{
-			name:     "Append to a list with multiple nodes",
+			name:     "append to a list with multiple nodes",
 			fields:   fields{head: &Node{value: 1}, tail: &Node{value: 2}},
 			args:     args{newNode: &Node{value: 3}},
 			wantHead: &Node{value: 1},
 			wantTail: &Node{value: 3},
 		},
 		{
-			name:     "Append a nil node",
+			name:     "append a nil node",
 			fields:   fields{head: &Node{value: 1}, tail: &Node{value: 1}},
 			args:     args{newNode: nil},
 			wantHead: &Node{value: 1},
@@ -76,7 +76,7 @@ func TestLinkedList_Slice(t *testing.T) {
 		want   []int
 	}{
 		{
-			name: "Convert an empty list to a slice",
+			name: "convert an empty list to a slice",
 			fields: fields{
 				head: nil,
 				tail: nil,
@@ -84,7 +84,7 @@ func TestLinkedList_Slice(t *testing.T) {
 			want: []int{},
 		},
 		{
-			name: "Convert a single-element list to a slice",
+			name: "convert a single-element list to a slice",
 			fields: fields{
 				head: &Node{value: 1},
 				tail: &Node{value: 1},
@@ -92,7 +92,7 @@ func TestLinkedList_Slice(t *testing.T) {
 			want: []int{1},
 		},
 		{
-			name: "Convert a multi-element list to a slice",
+			name: "convert a multi-element list to a slice",
 			fields: fields{
 				head: &Node{value: 1, next: &Node{value: 2, next: &Node{value: 3}}},
 				tail: &Node{value: 3},
